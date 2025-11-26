@@ -1,6 +1,6 @@
 'use client';
 import { useTransition } from 'react';
-import { orders, booksMap } from '@/lib/data';
+import { booksMap } from '@/lib/data';
 import type { Order } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -18,15 +18,15 @@ import { Loader2 } from 'lucide-react';
 
 
 type AdminDashboardProps = {
-    initialOrders?: Order[];
+    initialOrders: Order[];
 }
 
 export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   // In a real app with a database, you would re-fetch or use a subscription.
-  // For this demo, we assume the server will pass updated data on next load.
-  const sortedOrders = [...(initialOrders || orders)].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+  // For this demo, we use the props passed from the server.
+  const sortedOrders = [...initialOrders].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 
   const handleForward = (orderId: string) => {
     startTransition(async () => {

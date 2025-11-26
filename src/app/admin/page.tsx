@@ -4,6 +4,7 @@ import { AdminDashboard } from "./components/admin-dashboard";
 import { getUser, logout } from "./actions";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { orders } from "@/lib/data";
 
 export default async function AdminPage() {
   const user = await getUser();
@@ -23,7 +24,7 @@ export default async function AdminPage() {
                     <Button type="submit" variant="outline">Logout</Button>
                 </form>
             </div>
-            <AdminDashboard />
+            <AdminDashboard initialOrders={orders} />
           </div>
         </section>
       </main>
