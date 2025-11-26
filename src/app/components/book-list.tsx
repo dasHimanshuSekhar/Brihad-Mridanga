@@ -5,10 +5,11 @@ import type { CartItem } from './order-client-wrapper';
 
 type BookListProps = {
   addToCart: (book: Book) => void;
+  updateQuantity: (bookId: string, newQuantity: number) => void;
   cart: Map<string, CartItem>;
 };
 
-export function BookList({ addToCart, cart }: BookListProps) {
+export function BookList({ addToCart, updateQuantity, cart }: BookListProps) {
   return (
     <div>
       <h3 className="text-2xl font-headline mb-6">Our Collection</h3>
@@ -16,7 +17,7 @@ export function BookList({ addToCart, cart }: BookListProps) {
         {books.map(book => {
           const cartItem = cart.get(book.id);
           const quantity = cartItem ? cartItem.quantity : 0;
-          return <BookCard key={book.id} book={book} addToCart={addToCart} quantity={quantity} />
+          return <BookCard key={book.id} book={book} addToCart={addToCart} updateQuantity={updateQuantity} quantity={quantity} />
         })}
       </div>
     </div>

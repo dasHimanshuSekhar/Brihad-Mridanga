@@ -35,6 +35,10 @@ export function OrderClientWrapper() {
         const item = newCart.get(bookId);
         if (item) {
           item.quantity = newQuantity;
+        } else if (newQuantity > 0) {
+            // This case should not happen with the current UI flow, but as a safeguard:
+            // If you can update quantity for a book not in cart, it should be added.
+            // This would require finding the book details from a master list.
         }
       }
       return newCart;
@@ -53,7 +57,7 @@ export function OrderClientWrapper() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
       <div className="lg:col-span-2">
-        <BookList addToCart={addToCart} cart={cart} />
+        <BookList addToCart={addToCart} updateQuantity={updateQuantity} cart={cart} />
       </div>
       <div className="lg:col-span-1 mt-12 lg:mt-0">
         <div className="sticky top-24">
