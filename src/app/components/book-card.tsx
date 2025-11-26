@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { placeholderImageMap } from '@/lib/data';
 import type { Book } from '@/lib/data';
-import { Minus, Plus, ShoppingCart } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 type BookCardProps = {
@@ -19,6 +19,9 @@ export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCard
   return (
     <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0 relative">
+        {quantity > 0 && (
+            <Badge className="absolute top-2 right-2 z-10 bg-accent text-accent-foreground">{quantity}</Badge>
+        )}
         {image && (
           <div className="aspect-[2/3] relative w-full">
             <Image
@@ -38,22 +41,15 @@ export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCard
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
         <p className="font-semibold text-lg">${book.price.toFixed(2)}</p>
-        {quantity === 0 ? (
-          <Button size="sm" onClick={() => addToCart(book)}>
-            <ShoppingCart className="mr-2 h-4 w-4" />
-            Add
-          </Button>
-        ) : (
-          <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(book.id, quantity - 1)}>
+        <div className="flex items-center gap-2">
+            <Button variant="outline" size="icon" className="h-8 w-8" disabled={quantity === 0} onClick={() => updateQuantity(book.id, quantity - 1)}>
               <Minus className="h-4 w-4" />
             </Button>
             <span className="font-bold w-5 text-center">{quantity}</span>
             <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(book.id, quantity + 1)}>
               <Plus className="h-4 w-4" />
             </Button>
-          </div>
-        )}
+        </div>
       </CardFooter>
     </Card>
   );
