@@ -53,7 +53,7 @@ export function OrderClientWrapper() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
       <div className="lg:col-span-2">
-        <BookList addToCart={addToCart} />
+        <BookList addToCart={addToCart} cart={cart} />
       </div>
       <div className="lg:col-span-1 mt-12 lg:mt-0">
         <div className="sticky top-24">

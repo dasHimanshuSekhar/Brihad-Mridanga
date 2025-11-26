@@ -4,18 +4,20 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { placeholderImageMap } from '@/lib/data';
 import type { Book } from '@/lib/data';
 import { ShoppingCart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 type BookCardProps = {
   book: Book;
   addToCart: (book: Book) => void;
+  quantity: number;
 };
 
-export function BookCard({ book, addToCart }: BookCardProps) {
+export function BookCard({ book, addToCart, quantity }: BookCardProps) {
   const image = placeholderImageMap.get(book.imageId);
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
-      <CardHeader className="p-0">
+      <CardHeader className="p-0 relative">
         {image && (
           <div className="aspect-[2/3] relative w-full">
             <Image
@@ -27,6 +29,14 @@ export function BookCard({ book, addToCart }: BookCardProps) {
               data-ai-hint={image.imageHint}
             />
           </div>
+        )}
+        {quantity > 0 && (
+          <Badge 
+            variant="default" 
+            className="absolute top-2 right-2 bg-accent text-accent-foreground rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold"
+          >
+            {quantity}
+          </Badge>
         )}
       </CardHeader>
       <CardContent className="flex-1 p-4">
