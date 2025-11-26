@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "book1",
+      "description": "Classic book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book2",
+      "description": "Modern book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book3",
+      "description": "Vintage book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book4",
+      "description": "Abstract book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1535398089889-dd807df1dfaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book5",
+      "description": "Minimalist book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book6",
+      "description": "Typographic book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book7",
+      "description": "Illustrated book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1633477189729-9290b3261d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9vayUyMGNvdmVyfGVufDB8fHx8MTc2NDA5NTQzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book8",
+      "description": "Photographic book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book9",
+      "description": "Fantasy book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "book10",
+      "description": "Science fiction book cover",
+      "imageUrl": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    }
+  ]
 }
