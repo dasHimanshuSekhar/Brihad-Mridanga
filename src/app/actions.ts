@@ -11,6 +11,7 @@ function calculateScores(): Map<string, number> {
   const scores = new Map<string, number>();
 
   orders.forEach(order => {
+    if (order.status === 'Cancelled') return; // Don't count cancelled orders
     const bookCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
 
     // Add to purchaser's score
@@ -111,6 +112,7 @@ export async function placeOrder(data: unknown) {
   const newOrder: Order = {
     id: `ord_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
     ...customerData,
+    status: 'New',
     items,
     totalAmount: parseFloat(totalAmount.toFixed(2)),
     timestamp: new Date(),
@@ -118,9 +120,10 @@ export async function placeOrder(data: unknown) {
 
   // In a real app, you would save this to a database.
   // Here we are just pushing it to an in-memory array.
-  orders.push(newOrder);
+  orders.unshift(newOrder);
 
-  revalidatePath('/'); // To update leaderboard and referral data on the page
+  revalidatePath('/');
+  revalidatePath('/admin');
 
   return { success: true, orderId: newOrder.id, message: "Order placed successfully! Thank you for your purchase." };
 }
