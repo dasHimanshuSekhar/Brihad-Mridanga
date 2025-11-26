@@ -3,61 +3,61 @@
     {
       "id": "book1",
       "description": "Bhagavad-gītā As It Is",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/2c/Bhagavad-gita_As_It_Is.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1562041524-748f3fbde03b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiaGFnYXZhZCUyMGdpdGF8ZW58MHx8fHwxNzY0MTU5ODQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bhagavad gita"
     },
     {
       "id": "book2",
       "description": "Śrīmad-Bhāgavatam",
-      "imageUrl": "https://m.media-amazon.com/images/I/81Pj2+STXyL._AC_UF1000,1000_QL80_.jpg",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1574787929769-db45db9e4f10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3JpbWFkJTIwYmhhZ2F2YXRhbXxlbnwwfHx8fDE3NjQxNTk4NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "srimad bhagavatam"
     },
     {
       "id": "book3",
       "description": "Caitanya-caritāmṛta",
-      "imageUrl": "https://m.media-amazon.com/images/I/61-X8b1e4aL._SY466_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1763189697873-bf76b0380681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaGFpdGFueWElMjBjaGFyaXRhbXJpdGF8ZW58MHx8fHwxNzY0MTU5ODUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "chaitanya charitamrita"
     },
     {
       "id": "book4",
       "description": "The Nectar of Devotion",
-      "imageUrl": "https://m.media-amazon.com/images/I/81f5v9dFwML._AC_UF1000,1000_QL80_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1599952314074-e7c0a6859489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxuZWN0YXIlMjBkZXZvdGlvbnxlbnwwfHx8fDE3NjQxNTk4NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "nectar devotion"
     },
     {
       "id": "book5",
       "description": "The Nectar of Instruction",
-      "imageUrl": "https://m.media-amazon.com/images/I/81I2rS0O7DL._AC_UF1000,1000_QL80_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1686015372007-ab9b032f7c8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxuZWN0YXIlMjBpbnN0cnVjdGlvbnxlbnwwfHx8fDE3NjQxNTk4NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "nectar instruction"
     },
     {
       "id": "book6",
       "description": "Easy Journey to Other Planets",
-      "imageUrl": "https://m.media-amazon.com/images/I/71r-S+2aQRL._AC_UF1000,1000_QL80_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1623697707667-996535a6b020?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlYXN5JTIwam91cm5leXxlbnwwfHx8fDE3NjQxNTk4NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "easy journey"
     },
     {
       "id": "book7",
       "description": "Kṛṣṇa, the Supreme Personality of Godhead",
-      "imageUrl": "https://m.media-amazon.com/images/I/91M1y+04zTL._AC_UF1000,1000_QL80_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1740510986288-ecd1379e7f75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxrcmlzaG5hJTIwYm9va3xlbnwwfHx8fDE3NjQxNTk4NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "krishna book"
     },
     {
       "id": "book8",
       "description": "Perfect Questions, Perfect Answers",
-      "imageUrl": "https://m.media-amazon.com/images/I/61j8YfN1YxL._SY466_.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1516246843873-9d12356b6fab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJmZWN0JTIwcXVlc3Rpb25zfGVufDB8fHx8MTc2NDE1OTg0OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "perfect questions"
     },
     {
       "id": "book9",
       "description": "The Laws of Nature: An Infallible Justice",
-      "imageUrl": "https://m.media-amazon.com/images/I/51p1g5fVl5L.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1755722440265-6575a135bbbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYXdzJTIwbmF0dXJlfGVufDB8fHx8MTc2NDE1OTg1MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "laws nature"
     },
     {
       "id": "book10",
       "description": "Chant and Be Happy",
-      "imageUrl": "https://m.media-amazon.com/images/I/51J5q6Z1J2L.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1560498564-bee81f3f49ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGFudCUyMGhhcHB5fGVufDB8fHx8MTc2NDE1OTg1MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "chant happy"
     }
   ]
