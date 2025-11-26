@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { decrypt } from '@/app/admin/actions';
-import { cookies } from 'next/headers';
 
 const protectedRoutes = ['/admin'];
 const publicRoutes = ['/admin/login'];
@@ -10,7 +9,7 @@ export default async function middleware(req: NextRequest) {
   const isProtectedRoute = protectedRoutes.some((p) => path.startsWith(p)) && !publicRoutes.some((p) => path.startsWith(p));
   const isPublicRoute = publicRoutes.some((p) => path.startsWith(p));
 
-  const cookie = cookies().get('session')?.value;
+  const cookie = req.cookies.get('session')?.value;
   const session = await decrypt(cookie || "");
  
   if (isProtectedRoute && !session?.user) {
