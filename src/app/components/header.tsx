@@ -7,7 +7,7 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <BookHeart className="h-6 w-6 text-accent" />
-          <span className="font-bold font-headline text-xl text-foreground">BiblioBoost</span>
+          <span className="font-bold font-headline text-xl text-foreground">Brihad Mridanga</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="/#order" className="transition-colors hover:text-accent">Order</Link>

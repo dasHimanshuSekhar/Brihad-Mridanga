@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { placeholderImageMap } from '@/lib/data';
 
 export function Hero() {
-  const heroImage = placeholderImageMap.get('book1');
+  const heroImage = placeholderImageMap.get('prabhupada');
+  console.log('Hero image:', heroImage?.imageUrl);
 
   return (
     <section className="relative w-full h-[60dvh] md:h-[70dvh] text-center flex flex-col justify-center items-center px-4">
@@ -12,7 +13,7 @@ export function Hero() {
        {heroImage && (
         <Image
             src={heroImage.imageUrl}
-            alt="Bhagavad-gītā As It Is"
+            alt="Prabhupada with Books"
             fill
             className="object-cover"
             priority
@@ -21,10 +22,13 @@ export function Hero() {
        )}
       <div className="relative z-20 max-w-4xl">
         <h1 className="text-4xl font-extrabold tracking-tight font-headline md:text-6xl lg:text-7xl">
-          Timeless Wisdom for the Modern Age
+          "Book Distribution"
+        </h1>
+        <h1 className="text-4xl font-extrabold tracking-tight font-headline md:text-6xl lg:text-7xl">
+          The Brihad Mridanga
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-foreground/80 md:text-xl">
-          Discover the profound teachings of the Vedas. Purchase authentic translations and commentaries by A.C. Bhaktivedanta Swami Prabhupāda, and embark on a journey of self-realization.
+          This [book distribution] is our most important work. All the leaders should tax their brains for increasing the sales of our books. I have always said that if we simply rely on book distribution all our needs will be met. (Letter to: Rupanuga 11 January, 1976)
         </p>
         <div className="mt-8">
           <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
