@@ -7,18 +7,12 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const icons = [Feather, Pen, Quote, Glasses, Coffee, Bookmark, BookCopy, Lightbulb];
-const gameIcons = [...icons, ...icons];
 
-const shuffleArray = (array: any[]) => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
+const generateCards = () => {
+    const gameIcons = [...icons, ...icons];
+    const shuffledIcons = gameIcons.sort(() => Math.random() - 0.5);
+    return shuffledIcons.map((Icon, index) => ({ id: index, Icon, isFlipped: false, isMatched: false }));
 };
-
-const generateCards = () => shuffleArray([...gameIcons]).map((Icon, index) => ({ id: index, Icon, isFlipped: false, isMatched: false }));
 
 export function EmbeddedGame() {
   const [cards, setCards] = useState(generateCards());
@@ -28,7 +22,7 @@ export function EmbeddedGame() {
 
   useEffect(() => {
     setIsClient(true);
-    resetGame();
+    setCards(generateCards());
   }, []);
 
 
@@ -47,9 +41,9 @@ export function EmbeddedGame() {
           setFlippedIndices([]);
         }, 1000);
       }
-      setMoves(moves + 1);
+      setMoves(prevMoves => prevMoves + 1);
     }
-  }, [flippedIndices, cards, moves]);
+  }, [flippedIndices, cards]);
 
   const handleCardClick = (index: number) => {
     if (flippedIndices.length < 2 && !cards[index].isFlipped) {
@@ -67,7 +61,21 @@ export function EmbeddedGame() {
   const isGameWon = cards.every(card => card.isMatched);
 
   if (!isClient) {
-    return null; // Or a placeholder/skeleton loader
+    return (
+        <Card className="max-w-xl mx-auto">
+            <CardContent className="p-6">
+                 <div className="flex justify-between items-center mb-4">
+                    <p className="font-semibold">Moves: <span className="text-accent">0</span></p>
+                    <Button variant="outline">Reset Game</Button>
+                </div>
+                <div className="grid grid-cols-4 gap-4">
+                    {Array.from({ length: 16 }).map((_, index) => (
+                        <div key={index} className="aspect-square bg-muted rounded-md" />
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
+    );
   }
 
   return (
