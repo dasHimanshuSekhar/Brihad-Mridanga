@@ -10,17 +10,27 @@ const icons = [Feather, Pen, Quote, Glasses, Coffee, Bookmark, BookCopy, Lightbu
 const gameIcons = [...icons, ...icons];
 
 const shuffleArray = (array: any[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
-  return array;
+  return newArray;
 };
 
+const generateCards = () => shuffleArray([...gameIcons]).map((Icon, index) => ({ id: index, Icon, isFlipped: false, isMatched: false }));
+
 export function EmbeddedGame() {
-  const [cards, setCards] = useState(() => shuffleArray([...gameIcons]).map((Icon, index) => ({ id: index, Icon, isFlipped: false, isMatched: false })));
+  const [cards, setCards] = useState(generateCards());
   const [flippedIndices, setFlippedIndices] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    resetGame();
+  }, []);
+
 
   useEffect(() => {
     if (flippedIndices.length === 2) {
@@ -49,12 +59,16 @@ export function EmbeddedGame() {
   };
   
   const resetGame = () => {
-    setCards(shuffleArray([...gameIcons]).map((Icon, index) => ({ id: index, Icon, isFlipped: false, isMatched: false })));
+    setCards(generateCards());
     setFlippedIndices([]);
     setMoves(0);
   };
 
   const isGameWon = cards.every(card => card.isMatched);
+
+  if (!isClient) {
+    return null; // Or a placeholder/skeleton loader
+  }
 
   return (
     <Card className="max-w-xl mx-auto">
