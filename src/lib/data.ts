@@ -10,17 +10,18 @@ export type Book = {
 };
 
 export const books: Book[] = [
-  { id: '1', title: 'The Alchemist', author: 'Paulo Coelho', price: 12.99, imageId: 'book1' },
-  { id: '2', title: 'Sapiens: A Brief History of Humankind', author: 'Yuval Noah Harari', price: 18.00, imageId: 'book2' },
-  { id: '3', title: 'The Power of Now', author: 'Eckhart Tolle', price: 10.99, imageId: 'book3' },
-  { id: '4', title: '1984', author: 'George Orwell', price: 9.99, imageId: 'book4' },
-  { id: '5', title: 'Atomic Habits', author: 'James Clear', price: 17.99, imageId: 'book5' },
-  { id: '6', title: 'Bhagavad Gita', author: 'Vyasa', price: 14.99, imageId: 'book6' },
-  { id: '7', title: 'Meditations', author: 'Marcus Aurelius', price: 8.99, imageId: 'book7' },
-  { id: '8', title: 'Dune', author: 'Frank Herbert', price: 15.50, imageId: 'book8' },
-  { id: '9', title: 'The Four Agreements', author: 'Don Miguel Ruiz', price: 7.95, imageId: 'book9' },
-  { id: '10', title: 'Man\'s Search for Meaning', author: 'Viktor E. Frankl', price: 11.25, imageId: 'book10' },
+  { id: '1', title: 'Bhagavad-gītā As It Is', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 15.00, imageId: 'book1' },
+  { id: '2', title: 'Śrīmad-Bhāgavatam', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 25.00, imageId: 'book2' },
+  { id: '3', title: 'Caitanya-caritāmṛta', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 30.00, imageId: 'book3' },
+  { id: '4', title: 'The Nectar of Devotion', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 10.00, imageId: 'book4' },
+  { id: '5', title: 'The Nectar of Instruction', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 8.00, imageId: 'book5' },
+  { id: '6', title: 'Easy Journey to Other Planets', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 7.00, imageId: 'book6' },
+  { id: '7', title: 'Kṛṣṇa, the Supreme Personality of Godhead', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 20.00, imageId: 'book7' },
+  { id: '8', title: 'Perfect Questions, Perfect Answers', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 9.00, imageId: 'book8' },
+  { id: '9', title: 'The Laws of Nature: An Infallible Justice', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 6.00, imageId: 'book9' },
+  { id: '10', title: 'Chant and Be Happy', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 5.00, imageId: 'book10' },
 ];
+
 
 export type OrderItem = {
   bookId: string;

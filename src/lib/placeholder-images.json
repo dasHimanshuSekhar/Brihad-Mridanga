@@ -2,63 +2,63 @@
   "placeholderImages": [
     {
       "id": "book1",
-      "description": "Classic book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Bhagavad-gītā As It Is",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/2c/Bhagavad-gita_As_It_Is.jpg",
+      "imageHint": "bhagavad gita"
     },
     {
       "id": "book2",
-      "description": "Modern book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Śrīmad-Bhāgavatam",
+      "imageUrl": "https://m.media-amazon.com/images/I/81Pj2+STXyL._AC_UF1000,1000_QL80_.jpg",
+      "imageHint": "srimad bhagavatam"
     },
     {
       "id": "book3",
-      "description": "Vintage book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Caitanya-caritāmṛta",
+      "imageUrl": "https://m.media-amazon.com/images/I/61-X8b1e4aL._SY466_.jpg",
+      "imageHint": "chaitanya charitamrita"
     },
     {
       "id": "book4",
-      "description": "Abstract book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1535398089889-dd807df1dfaa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "The Nectar of Devotion",
+      "imageUrl": "https://m.media-amazon.com/images/I/81f5v9dFwML._AC_UF1000,1000_QL80_.jpg",
+      "imageHint": "nectar devotion"
     },
     {
       "id": "book5",
-      "description": "Minimalist book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "The Nectar of Instruction",
+      "imageUrl": "https://m.media-amazon.com/images/I/81I2rS0O7DL._AC_UF1000,1000_QL80_.jpg",
+      "imageHint": "nectar instruction"
     },
     {
       "id": "book6",
-      "description": "Typographic book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Easy Journey to Other Planets",
+      "imageUrl": "https://m.media-amazon.com/images/I/71r-S+2aQRL._AC_UF1000,1000_QL80_.jpg",
+      "imageHint": "easy journey"
     },
     {
       "id": "book7",
-      "description": "Illustrated book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1633477189729-9290b3261d0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9vayUyMGNvdmVyfGVufDB8fHx8MTc2NDA5NTQzNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Kṛṣṇa, the Supreme Personality of Godhead",
+      "imageUrl": "https://m.media-amazon.com/images/I/91M1y+04zTL._AC_UF1000,1000_QL80_.jpg",
+      "imageHint": "krishna book"
     },
     {
       "id": "book8",
-      "description": "Photographic book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Perfect Questions, Perfect Answers",
+      "imageUrl": "https://m.media-amazon.com/images/I/61j8YfN1YxL._SY466_.jpg",
+      "imageHint": "perfect questions"
     },
     {
       "id": "book9",
-      "description": "Fantasy book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "The Laws of Nature: An Infallible Justice",
+      "imageUrl": "https://m.media-amazon.com/images/I/51p1g5fVl5L.jpg",
+      "imageHint": "laws nature"
     },
     {
       "id": "book10",
-      "description": "Science fiction book cover",
-      "imageUrl": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzY0MDk1NDM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "book cover"
+      "description": "Chant and Be Happy",
+      "imageUrl": "https://m.media-amazon.com/images/I/51J5q6Z1J2L.jpg",
+      "imageHint": "chant happy"
     }
   ]
 }
