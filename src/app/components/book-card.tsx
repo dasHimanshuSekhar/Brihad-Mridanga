@@ -16,6 +16,14 @@ type BookCardProps = {
 export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCardProps) {
   const image = placeholderImageMap.get(book.imageId);
 
+  const handleAdd = () => {
+    if (quantity === 0) {
+      addToCart(book);
+    } else {
+      updateQuantity(book.id, quantity + 1);
+    }
+  };
+
   return (
     <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0 relative">
@@ -46,7 +54,7 @@ export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCard
               <Minus className="h-4 w-4" />
             </Button>
             <span className="font-bold w-5 text-center">{quantity}</span>
-            <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(book.id, quantity + 1)}>
+            <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleAdd}>
               <Plus className="h-4 w-4" />
             </Button>
         </div>
