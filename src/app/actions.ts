@@ -6,19 +6,19 @@ import { books, booksMap } from '@/lib/data';
 import type { Order, OrderItem } from '@/lib/data';
 import { revalidatePath } from 'next/cache';
 import { initializeAdmin } from '@/firebase/admin';
-import { collection, getDocs, addDoc, serverTimestamp, getFirestore } from 'firebase/firestore/lite';
+import { Timestamp } from 'firebase-admin/firestore';
 
 
 async function getOrdersFromDB(): Promise<Order[]> {
   const { firestore } = await initializeAdmin();
-  const ordersCol = collection(firestore, 'orders');
-  const orderSnapshot = await getDocs(ordersCol);
+  const ordersCol = firestore.collection('orders');
+  const orderSnapshot = await ordersCol.get();
   const orderList = orderSnapshot.docs.map(doc => {
     const data = doc.data();
     return { 
         id: doc.id,
         ...data,
-        timestamp: data.timestamp.toDate() // Convert Firestore Timestamp to JS Date
+        timestamp: (data.timestamp as Timestamp).toDate() // Convert Firestore Timestamp to JS Date
     } as Order;
   });
   return orderList;
@@ -131,13 +131,13 @@ export async function placeOrder(data: unknown) {
     ...customerData,
     items,
     totalAmount: parseFloat(totalAmount.toFixed(2)),
-    timestamp: serverTimestamp(),
+    timestamp: Timestamp.now(),
     status: 'New' as const,
   };
 
   try {
     const { firestore } = await initializeAdmin();
-    const docRef = await addDoc(collection(firestore, "orders"), newOrderData);
+    const docRef = await firestore.collection("orders").add(newOrderData);
     
     revalidatePath('/');
     revalidatePath('/admin');

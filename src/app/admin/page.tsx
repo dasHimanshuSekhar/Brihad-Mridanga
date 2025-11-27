@@ -1,4 +1,5 @@
 
+
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { AdminDashboard } from "./components/admin-dashboard";
@@ -7,16 +8,15 @@ import { getUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { initializeAdmin } from '@/firebase/admin';
-import { collection, getDocs, query, orderBy, getFirestore } from 'firebase/firestore/lite';
+import { Timestamp } from 'firebase-admin/firestore';
 import type { Order } from '@/lib/data';
-import { Timestamp } from "firebase/firestore/lite";
+
 
 async function getOrders(): Promise<Order[]> {
-  await initializeAdmin();
-  const firestore = getFirestore();
-  const ordersRef = collection(firestore, 'orders');
-  const q = query(ordersRef, orderBy('timestamp', 'desc'));
-  const querySnapshot = await getDocs(q);
+  const { firestore } = await initializeAdmin();
+  const ordersRef = firestore.collection('orders');
+  const q = ordersRef.orderBy('timestamp', 'desc');
+  const querySnapshot = await q.get();
   
   return querySnapshot.docs.map(doc => {
     const data = doc.data();
