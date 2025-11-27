@@ -5,14 +5,14 @@ import { z } from 'zod';
 import { books, booksMap } from '@/lib/data';
 import type { Order, OrderItem } from '@/lib/data';
 import { revalidatePath } from 'next/cache';
-import { initializeAdmin } from '@/firebase/admin';
-import { Timestamp } from 'firebase-admin/firestore';
+import { initializeFirebase } from '@/firebase';
+import { collection, getDocs, addDoc, Timestamp } from 'firebase/firestore';
 
 
 async function getOrdersFromDB(): Promise<Order[]> {
-  const { firestore } = await initializeAdmin();
-  const ordersCol = firestore.collection('orders');
-  const orderSnapshot = await ordersCol.get();
+  const { firestore } = initializeFirebase();
+  const ordersCol = collection(firestore, 'orders');
+  const orderSnapshot = await getDocs(ordersCol);
   const orderList = orderSnapshot.docs.map(doc => {
     const data = doc.data();
     return { 
@@ -136,8 +136,8 @@ export async function placeOrder(data: unknown) {
   };
 
   try {
-    const { firestore } = await initializeAdmin();
-    const docRef = await firestore.collection("orders").add(newOrderData);
+    const { firestore } = initializeFirebase();
+    const docRef = await addDoc(collection(firestore, "orders"), newOrderData);
     
     revalidatePath('/');
     revalidatePath('/admin');
