@@ -1,3 +1,5 @@
+
+import { Suspense } from "react";
 import { Header } from "@/app/components/header";
 import { Hero } from "@/app/components/hero";
 import { OrderClientWrapper } from "@/app/components/order-client-wrapper";
@@ -6,6 +8,15 @@ import { Leaderboard } from "@/app/components/leaderboard";
 import { EmbeddedGame } from "@/app/components/embedded-game";
 import { Footer } from "@/app/components/footer";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
+
+function LeaderboardSkeleton() {
+  return (
+    <div className="max-w-2xl mx-auto">
+       <Skeleton className="h-96 w-full" />
+    </div>
+  )
+}
 
 export default function Home() {
   return (
@@ -34,7 +45,9 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-headline text-center mb-4">Public Leaderboard</h2>
             <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">See our top readers and referrers. Your next purchase could land you on this list!</p>
-            <Leaderboard />
+            <Suspense fallback={<LeaderboardSkeleton />}>
+              <Leaderboard />
+            </Suspense>
           </div>
         </section>
 
