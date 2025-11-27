@@ -8,10 +8,13 @@ const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
 
 // This guard is needed to prevent re-initializing the app in Next.js hot-reloading environment
 const apps = getApps();
-if (!apps.length) {
+if (serviceAccount && !apps.length) {
     initializeApp({
-        credential: serviceAccount ? cert(serviceAccount) : undefined,
+        credential: cert(serviceAccount),
     });
+} else if (!apps.length) {
+    // In some environments, the SDK can auto-discover credentials.
+    initializeApp();
 }
 
 const firestore = getFirestore();
