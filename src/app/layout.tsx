@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "BiblioBoost",
+  title: "BrihadMridanga",
   description: "A gamified book ordering experience.",
 };
 

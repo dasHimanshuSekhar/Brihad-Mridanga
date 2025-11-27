@@ -1,4 +1,4 @@
-# **App Name**: BiblioBoost
+# **App Name**: BrihadMridanga
 
 ## Core Features:
 

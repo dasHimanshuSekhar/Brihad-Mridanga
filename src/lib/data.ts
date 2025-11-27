@@ -10,16 +10,15 @@ export type Book = {
 };
 
 export const books: Book[] = [
-  { id: '1', title: 'Bhagavad-gītā As It Is', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 15.00, imageId: 'book1' },
-  { id: '2', title: 'Śrīmad-Bhāgavatam', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 25.00, imageId: 'book2' },
-  { id: '3', title: 'Caitanya-caritāmṛta', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 30.00, imageId: 'book3' },
-  { id: '4', title: 'The Nectar of Devotion', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 10.00, imageId: 'book4' },
-  { id: '5', title: 'The Nectar of Instruction', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 8.00, imageId: 'book5' },
-  { id: '6', title: 'Easy Journey to Other Planets', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 7.00, imageId: 'book6' },
-  { id: '7', title: 'Kṛṣṇa, the Supreme Personality of Godhead', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 20.00, imageId: 'book7' },
-  { id: '8', title: 'Perfect Questions, Perfect Answers', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 9.00, imageId: 'book8' },
-  { id: '9', title: 'The Laws of Nature: An Infallible Justice', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 6.00, imageId: 'book9' },
-  { id: '10', title: 'Chant and Be Happy', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 5.00, imageId: 'book10' },
+  { id: '1', title: 'Bhagavad-gītā As It Is English (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 15.00, imageId: 'bgEngBig' },
+  { id: '2', title: 'Bhagavad-gītā As It Is English (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 25.00, imageId: 'bgEngBig' },
+  { id: '3', title: 'Bhagavad-gītā As It Is Odia (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 30.00, imageId: 'bgEngBig' },
+  { id: '4', title: 'Bhagavad-gītā As It Is Hindi (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 10.00, imageId: 'bgEngBig' },
+  { id: '5', title: 'Bhagavad-gītā As It Is Hindi (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 8.00, imageId: 'bgEngBig' },
+  { id: '6', title: 'Krishna (The Supreme Personality of Godhead)-English', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 7.00, imageId: 'krsnaEngBig' },
+  { id: '7', title: 'Krishna (The Supreme Personality of Godhead)-Hindi', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 20.00, imageId: 'krsnaEngBig' },
+  { id: '8', title: 'Krishna (The Supreme Personality of Godhead)-Odia', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 9.00, imageId: 'krsnaEngBig' },
+  { id: '9', title: 'Bhagavad-gītā As It Is Bengali', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 6.00, imageId: 'bgEngBig' }
 ];
 
 
