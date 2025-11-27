@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 
 const secretKey = process.env.JWT_SECRET_KEY || 'a-very-secret-key-that-is-long-enough';
 const key = new TextEncoder().encode(secretKey);
@@ -28,4 +29,9 @@ export async function getUser() {
     if (!sessionCookie) return null;
     const session = await decrypt(sessionCookie);
     return session?.user;
+}
+
+export async function logout() {
+    cookies().set('session', '', { expires: new Date(0) });
+    redirect('/admin/login');
 }

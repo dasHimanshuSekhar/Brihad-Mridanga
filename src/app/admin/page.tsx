@@ -1,7 +1,8 @@
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { AdminDashboard } from "./components/admin-dashboard";
-import { getUser, logout } from "./actions";
+import { logout } from "@/lib/session";
+import { getUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { initializeAdmin } from '@/firebase/admin';

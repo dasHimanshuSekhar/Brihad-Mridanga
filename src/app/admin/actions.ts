@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { initializeAdmin } from '@/firebase/admin';
 import { doc, updateDoc, getDoc } from 'firebase/firestore';
-import { encrypt, decrypt, getUser as getSessionUser } from '@/lib/session';
+import { encrypt } from '@/lib/session';
 
 
 const loginSchema = z.object({
@@ -34,15 +34,6 @@ export async function login(prevState: { error: string | undefined }, formData: 
         return { error: 'Invalid User ID or Password.' }
     }
     redirect('/admin');
-}
-
-export async function logout() {
-    cookies().set('session', '', { expires: new Date(0) });
-    redirect('/admin/login');
-}
-
-export async function getUser() {
-   return await getSessionUser();
 }
 
 
