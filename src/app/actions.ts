@@ -1,3 +1,4 @@
+
 "use server";
 
 import { z } from 'zod';
@@ -5,7 +6,8 @@ import { books, booksMap } from '@/lib/data';
 import type { Order, OrderItem } from '@/lib/data';
 import { revalidatePath } from 'next/cache';
 import { initializeAdmin } from '@/firebase/admin';
-import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, getDocs, addDoc, serverTimestamp, getFirestore } from 'firebase/firestore/lite';
+
 
 async function getOrdersFromDB(): Promise<Order[]> {
   const { firestore } = await initializeAdmin();

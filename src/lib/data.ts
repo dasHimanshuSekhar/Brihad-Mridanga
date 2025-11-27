@@ -1,6 +1,7 @@
+
 import placeholderData from './placeholder-images.json';
 import type { ImagePlaceholder } from './placeholder-images';
-import { Timestamp } from 'firebase/firestore';
+import { Timestamp } from 'firebase/firestore/lite';
 
 export type Book = {
   id: string;

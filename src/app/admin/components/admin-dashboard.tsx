@@ -1,3 +1,4 @@
+
 'use client';
 import { useTransition } from 'react';
 import { booksMap } from '@/lib/data';
@@ -15,7 +16,7 @@ import { Button } from '@/components/ui/button';
 import { forwardToShiprocket } from '../actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { Timestamp } from 'firebase/firestore';
+import { Timestamp } from 'firebase/firestore/lite';
 
 
 type AdminDashboardProps = {

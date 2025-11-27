@@ -1,10 +1,11 @@
+
 'use server';
 import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { initializeAdmin } from '@/firebase/admin';
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc, getFirestore } from 'firebase/firestore/lite';
 import { encrypt } from '@/lib/session';
 
 
