@@ -1,3 +1,5 @@
+'use client';
+
 import { books } from '@/lib/data';
 import type { Book } from '@/lib/data';
 import { BookCard } from '@/app/components/book-card';
