@@ -19,18 +19,12 @@ async function getOrders(): Promise<Order[]> {
   
   return querySnapshot.docs.map(doc => {
     const data = doc.data();
-    const timestamp = data.timestamp as Timestamp;
+    // The timestamp from the client SDK is already a Date object when used on the server.
+    // No need for .toDate()
     return {
       id: doc.id,
-      name: data.name,
-      address: data.address,
-      mobile: data.mobile,
-      email: data.email,
-      referralCode: data.referralCode,
-      items: data.items,
-      totalAmount: data.totalAmount,
-      status: data.status,
-      timestamp: timestamp.toDate(),
+      ...data,
+      timestamp: data.timestamp,
     } as Order;
   });
 }
