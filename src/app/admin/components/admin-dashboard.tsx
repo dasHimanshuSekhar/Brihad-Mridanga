@@ -15,26 +15,40 @@ import { Button } from '@/components/ui/button';
 import { forwardToShiprocket } from '../actions';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import { Timestamp } from 'firebase/firestore';
 
 
 type AdminDashboardProps = {
     initialOrders: Order[];
 }
 
+function toDate(timestamp: any): Date {
+  if (timestamp instanceof Date) {
+    return timestamp;
+  }
+  if (timestamp && typeof timestamp.toDate === 'function') {
+    return timestamp.toDate();
+  }
+  return new Date(); // Fallback
+}
+
+
 export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
-  // In a real app with a database, you would re-fetch or use a subscription.
-  // For this demo, we use the props passed from the server.
-  const sortedOrders = [...initialOrders].sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+  
+  // Convert Firestore Timestamps to JS Dates for consistent sorting
+  const sortedOrders = [...initialOrders].map(order => ({
+    ...order,
+    timestamp: toDate(order.timestamp),
+  })).sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 
   const handleForward = (orderId: string) => {
     startTransition(async () => {
         const result = await forwardToShiprocket(orderId);
         if(result.success) {
             toast({ title: "Success", description: result.message });
-            // In a real app, you would invalidate a cache or re-fetch data here
-            // For now, a page refresh is needed to see the status change.
+            // revalidation should handle the refresh, but a manual reload can be a fallback
              window.location.reload();
         } else {
             toast({ variant: 'destructive', title: "Error", description: result.message });
@@ -60,7 +74,7 @@ export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
     <Card>
       <CardHeader>
         <CardTitle>All Orders</CardTitle>
-        <CardDescription>A list of all orders placed through the system.</CardDescription>
+        <CardDescription>A list of all orders placed through the system, fetched from Firestore.</CardDescription>
       </CardHeader>
       <CardContent>
         <Accordion type="single" collapsible className="w-full">

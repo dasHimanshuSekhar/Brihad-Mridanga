@@ -1,5 +1,6 @@
 import placeholderData from './placeholder-images.json';
 import type { ImagePlaceholder } from './placeholder-images';
+import { Timestamp } from 'firebase/firestore';
 
 export type Book = {
   id: string;
@@ -36,7 +37,7 @@ export type Order = {
   referralCode?: string;
   items: OrderItem[];
   totalAmount: number;
-  timestamp: Date;
+  timestamp: Date | Timestamp;
   status: 'New' | 'Shipped' | 'Delivered' | 'Cancelled';
 };
 

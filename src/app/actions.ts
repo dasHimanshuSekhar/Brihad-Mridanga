@@ -1,23 +1,39 @@
 "use server";
 
 import { z } from 'zod';
-import { books, orders, booksMap } from '@/lib/data';
+import { books, booksMap } from '@/lib/data';
 import type { Order, OrderItem } from '@/lib/data';
 import { revalidatePath } from 'next/cache';
+import { initializeAdmin } from '@/firebase/admin';
+import { collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+
+async function getOrdersFromDB(): Promise<Order[]> {
+  const { firestore } = await initializeAdmin();
+  const ordersCol = collection(firestore, 'orders');
+  const orderSnapshot = await getDocs(ordersCol);
+  const orderList = orderSnapshot.docs.map(doc => {
+    const data = doc.data();
+    return { 
+        id: doc.id,
+        ...data,
+        timestamp: data.timestamp.toDate() // Convert Firestore Timestamp to JS Date
+    } as Order;
+  });
+  return orderList;
+}
 
 // --- Referral & Leaderboard Logic ---
 
-function calculateScores(): Map<string, number> {
+async function calculateScores(): Promise<Map<string, number>> {
+  const orders = await getOrdersFromDB();
   const scores = new Map<string, number>();
 
   orders.forEach(order => {
-    if (order.status === 'Cancelled') return; // Don't count cancelled orders
+    if (order.status === 'Cancelled') return; 
     const bookCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
 
-    // Add to purchaser's score
     scores.set(order.mobile, (scores.get(order.mobile) || 0) + bookCount);
 
-    // Add to referrer's score
     if (order.referralCode) {
       scores.set(order.referralCode, (scores.get(order.referralCode) || 0) + bookCount);
     }
@@ -31,7 +47,7 @@ export async function getReferralData(mobile: string) {
     return { error: 'Please enter a valid 10-digit mobile number.' };
   }
   
-  const scores = calculateScores();
+  const scores = await calculateScores();
   const totalBooks = scores.get(mobile) || 0;
 
   const milestones = [
@@ -61,7 +77,7 @@ export async function getReferralData(mobile: string) {
 }
 
 export async function getLeaderboardData() {
-  const scores = calculateScores();
+  const scores = await calculateScores();
   const sortedScores = Array.from(scores.entries())
     .sort((a, b) => b[1] - a[1])
     .slice(0, 10); // Top 10
@@ -109,21 +125,24 @@ export async function placeOrder(data: unknown) {
     return { success: false, message: 'Invalid order total. Please check your cart.' };
   }
 
-  const newOrder: Order = {
-    id: `ord_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+  const newOrderData = {
     ...customerData,
-    status: 'New',
     items,
     totalAmount: parseFloat(totalAmount.toFixed(2)),
-    timestamp: new Date(),
+    timestamp: serverTimestamp(),
+    status: 'New' as const,
   };
 
-  // In a real app, you would save this to a database.
-  // Here we are just pushing it to an in-memory array.
-  orders.unshift(newOrder);
+  try {
+    const { firestore } = await initializeAdmin();
+    const docRef = await addDoc(collection(firestore, "orders"), newOrderData);
+    
+    revalidatePath('/');
+    revalidatePath('/admin');
 
-  revalidatePath('/');
-  revalidatePath('/admin');
-
-  return { success: true, orderId: newOrder.id, message: "Order placed successfully! Thank you for your purchase." };
+    return { success: true, orderId: docRef.id, message: "Order placed successfully! Thank you for your purchase." };
+  } catch (error) {
+    console.error("Error placing order: ", error);
+    return { success: false, message: "Could not place order. Please try again." };
+  }
 }

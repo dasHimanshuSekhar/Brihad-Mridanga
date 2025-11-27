@@ -3,8 +3,10 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-import { orders } from '@/lib/data';
 import { SignJWT, jwtVerify } from 'jose';
+import { initializeAdmin } from '@/firebase/admin';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
+
 
 const secretKey = process.env.JWT_SECRET_KEY || 'a-very-secret-key-that-is-long-enough';
 const key = new TextEncoder().encode(secretKey);
@@ -71,28 +73,31 @@ export async function getUser() {
 
 // --- Shiprocket Action ---
 export async function forwardToShiprocket(orderId: string) {
-  // Find the order
-  const order = orders.find(o => o.id === orderId);
+  const { firestore } = await initializeAdmin();
+  const orderRef = doc(firestore, 'orders', orderId);
 
-  if (!order) {
-    return { success: false, message: 'Order not found.' };
+  try {
+    const orderSnap = await getDoc(orderRef);
+    if (!orderSnap.exists()) {
+        return { success: false, message: 'Order not found.' };
+    }
+    const order = orderSnap.data();
+    
+    if (order.status !== 'New') {
+      return { success: false, message: `Order status is already '${order.status}'.` };
+    }
+
+    // In a real app, you would make an API call to Shiprocket here.
+    console.log('Forwarding order to Shiprocket:', {id: orderId, ...order});
+    
+    await updateDoc(orderRef, { status: 'Shipped' });
+    
+    revalidatePath('/admin');
+
+    return { success: true, message: `Order ${orderId} has been forwarded to Shiprocket and status updated to 'Shipped'.` };
+
+  } catch(error) {
+    console.error("Error updating order status:", error);
+    return { success: false, message: 'Failed to update order status.' };
   }
-
-  if (order.status !== 'New') {
-    return { success: false, message: `Order status is already '${order.status}'.` };
-  }
-
-  // In a real app, you would make an API call to Shiprocket here
-  // with the order details.
-  console.log('Forwarding order to Shiprocket:', order);
-  
-  // Simulate API call delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  // Update the order status in our "database"
-  order.status = 'Shipped';
-  
-  revalidatePath('/admin');
-
-  return { success: true, message: `Order ${orderId} has been forwarded to Shiprocket and status updated to 'Shipped'.` };
 }

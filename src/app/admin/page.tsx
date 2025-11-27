@@ -4,13 +4,43 @@ import { AdminDashboard } from "./components/admin-dashboard";
 import { getUser, logout } from "./actions";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { orders } from "@/lib/data";
+import { initializeAdmin } from '@/firebase/admin';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import type { Order } from '@/lib/data';
+import { Timestamp } from "firebase/firestore";
+
+async function getOrders(): Promise<Order[]> {
+  const { firestore } = await initializeAdmin();
+  const ordersRef = collection(firestore, 'orders');
+  const q = query(ordersRef, orderBy('timestamp', 'desc'));
+  const querySnapshot = await getDocs(q);
+  
+  return querySnapshot.docs.map(doc => {
+    const data = doc.data();
+    const timestamp = data.timestamp as Timestamp;
+    return {
+      id: doc.id,
+      name: data.name,
+      address: data.address,
+      mobile: data.mobile,
+      email: data.email,
+      referralCode: data.referralCode,
+      items: data.items,
+      totalAmount: data.totalAmount,
+      status: data.status,
+      timestamp: timestamp.toDate(),
+    } as Order;
+  });
+}
+
 
 export default async function AdminPage() {
   const user = await getUser();
   if (!user) {
     redirect('/admin/login');
   }
+
+  const orders = await getOrders();
 
   return (
     <div className="flex flex-col min-h-dvh bg-background font-body">
