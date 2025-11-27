@@ -1,7 +1,7 @@
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { LoginForm } from "../components/login-form";
-import { getUser } from "../actions";
+import { getUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 
 

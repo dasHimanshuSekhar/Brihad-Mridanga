@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { decrypt } from '@/app/admin/actions';
+import { decrypt } from '@/lib/session';
 
 const protectedRoutes = ['/admin'];
 const publicRoutes = ['/admin/login'];

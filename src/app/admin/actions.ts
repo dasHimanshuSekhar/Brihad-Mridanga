@@ -3,37 +3,15 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-import { SignJWT, jwtVerify } from 'jose';
 import { initializeAdmin } from '@/firebase/admin';
 import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { encrypt, decrypt, getUser as getSessionUser } from '@/lib/session';
 
-
-const secretKey = process.env.JWT_SECRET_KEY || 'a-very-secret-key-that-is-long-enough';
-const key = new TextEncoder().encode(secretKey);
 
 const loginSchema = z.object({
     userId: z.string(),
     password: z.string(),
 });
-
-export async function encrypt(payload: any) {
-    return await new SignJWT(payload)
-      .setProtectedHeader({ alg: 'HS256' })
-      .setIssuedAt()
-      .setExpirationTime('1h')
-      .sign(key);
-}
-
-export async function decrypt(input: string): Promise<any> {
-  try {
-    const { payload } = await jwtVerify(input, key, {
-      algorithms: ['HS256'],
-    });
-    return payload;
-  } catch (e) {
-    return null;
-  }
-}
 
 export async function login(prevState: { error: string | undefined }, formData: FormData) {
     const validatedFields = loginSchema.safeParse(Object.fromEntries(formData.entries()));
@@ -64,10 +42,7 @@ export async function logout() {
 }
 
 export async function getUser() {
-    const sessionCookie = cookies().get('session')?.value;
-    if (!sessionCookie) return null;
-    const session = await decrypt(sessionCookie);
-    return session?.user;
+   return await getSessionUser();
 }
 
 
