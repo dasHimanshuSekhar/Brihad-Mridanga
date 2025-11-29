@@ -20,11 +20,11 @@ const firebaseConfig = {
 // This is a separate, server-only function to initialize firebase.
 // It's not exported from the main entry point to avoid client-side bundling.
 function initializeFirebase() {
-    const apps = getApps();
-    const app = apps.length ? apps[0] : initializeApp(firebaseConfig);
-    const firestore = getFirestore(app);
-    const auth = getAuth(app);
-    return { app, firestore, auth };
+  const apps = getApps();
+  const app = apps.length ? apps[0] : initializeApp(firebaseConfig);
+  const firestore = getFirestore(app);
+  const auth = getAuth(app);
+  return { app, firestore, auth };
 }
 
 

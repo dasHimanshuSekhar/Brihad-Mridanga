@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'theharekrishnamovement.org',
+        hostname: 'raw.githubusercontent.com',
         port: '',
         pathname: '/**',
       },
@@ -52,13 +52,7 @@ const nextConfig: NextConfig = {
         hostname: 'upload.wikimedia.org',
         port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'm.media-amazon.com',
-        port: '',
-        pathname: '/**',
-      },
+      }
     ],
   },
 };

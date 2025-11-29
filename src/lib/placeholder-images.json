@@ -3,19 +3,55 @@
     {
       "id": "prabhupada",
       "description": "Prabhupada with Books",
-      "imageUrl": "https://theharekrishnamovement.org/wp-content/uploads/2011/10/scan27a.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/prabhupada/prabhupada.jpg",
       "imageHint": "prabhupada books"
+    },
+    {
+      "id": "bgOdiaBig",
+      "description": "Bhagavad-gītā As It Is Odia",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/bgOdia.jpg",
+      "imageHint": "bhagavad gita"
+    },
+    {
+      "id": "bgHindiBig",
+      "description": "Bhagavad-gītā As It Is Hindi",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/bgHindi.jpg",
+      "imageHint": "bhagavad gita"
     },
     {
       "id": "bgEngBig",
       "description": "Bhagavad-gītā As It Is English",
-      "imageUrl": "https://m.media-amazon.com/images/I/91aJO2+t6OL._SL1500_.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/bgEng.jpg",
       "imageHint": "bhagavad gita"
     },
     {
+      "id": "bgHindiSmall",
+      "description": "Bhagavad-gītā As It Is Hindi",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/bgHindiSmall.jpg",
+      "imageHint": "bhagavad gita"
+    },
+    {
+      "id": "bgEngSmall",
+      "description": "Bhagavad-gītā As It Is English",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/bgEngSmall.jpg",
+      "imageHint": "bhagavad gita"
+    },
+    {
+      "id": "krsnaOdiaBig",
+      "description": "Krsna the Supreme Personality Of Godhead Odia",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/krsnaOdia.jpg",
+      "imageHint": "krsna"
+    },
+    {
+      "id": "krsnaHindiBig",
+      "description": "Krsna the Supreme Personality Of Godhead Hindi",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/krsnaHindi.jpg",
+      "imageHint": "krsna"
+    },
+    {
       "id": "krsnaEngBig",
-      "description": "Krsna the Supreme Personality Of Godhead English",
-      "imageUrl": "https://cdn.quicksell.co/-MlBEkvUoxGbM94EUdk7/products/-MlzJ3aqDpcmv84Qt8Di.jpg",
+      "description": "Krsna the Supreme Personality Of Godhead Eng",
+      "imageUrl": "https://raw.githubusercontent.com/dasHimanshuSekhar/project-resources-vault/refs/heads/main/img/books/krsnaEng.png",
       "imageHint": "krsna"
     }
   ]

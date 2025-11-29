@@ -20,6 +20,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 const orderFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   address: z.string().min(10, { message: "Please enter a valid address." }),
+  zipCode: z.string().regex(/^\d{6}$/, { message: "Please enter a valid 6-digit zip code." }),
   mobile: z.string().regex(/^\d{10}$/, { message: "Please enter a valid 10-digit mobile number." }),
   email: z.string().email({ message: "Please enter a valid email." }),
   referralCode: z.string().regex(/^\d{10}$/, { message: "Referral code must be a 10-digit mobile number." }).optional().or(z.literal('')),
@@ -43,6 +44,7 @@ export function CartView({ cart, updateQuantity, cartItemsForForm, clearCart }: 
     defaultValues: {
       name: "",
       address: "",
+      zipCode: "",
       mobile: "",
       email: "",
       referralCode: "",
@@ -105,7 +107,7 @@ export function CartView({ cart, updateQuantity, cartItemsForForm, clearCart }: 
               <div key={book.id} className="flex justify-between items-center">
                 <div>
                   <p className="font-semibold">{book.title}</p>
-                  <p className="text-sm text-muted-foreground">${book.price.toFixed(2)}</p>
+                    <p className="text-sm text-muted-foreground">₹{book.price.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(book.id, quantity - 1)}><Minus className="h-3 w-3" /></Button>
@@ -122,7 +124,7 @@ export function CartView({ cart, updateQuantity, cartItemsForForm, clearCart }: 
                 <Separator />
                 <div className="flex justify-between font-bold">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                      <span>₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                 </div>
             </>
         )}
@@ -135,7 +137,10 @@ export function CartView({ cart, updateQuantity, cartItemsForForm, clearCart }: 
                 <FormItem><FormLabel>Name</FormLabel><FormControl><Input placeholder="Your Name" {...field} /></FormControl><FormMessage /></FormItem>
             )} />
             <FormField control={form.control} name="address" render={({ field }) => (
-                <FormItem><FormLabel>Shipping Address</FormLabel><FormControl><Input placeholder="Your Address" {...field} /></FormControl><FormMessage /></FormItem>
+              <FormItem><FormLabel>Shipping Address</FormLabel><FormControl><Input placeholder="Your Address" {...field} /></FormControl><FormMessage /></FormItem>
+            )} />
+            <FormField control={form.control} name="zipCode" render={({ field }) => (
+              <FormItem><FormLabel>Zip Code</FormLabel><FormControl><Input placeholder="6-digit zip code" {...field} /></FormControl><FormMessage /></FormItem>
             )} />
             <FormField control={form.control} name="mobile" render={({ field }) => (
                 <FormItem><FormLabel>Mobile Number</FormLabel><FormControl><Input placeholder="10-digit mobile" {...field} /></FormControl><FormMessage /></FormItem>

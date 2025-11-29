@@ -12,15 +12,14 @@ export type Book = {
 };
 
 export const books: Book[] = [
-  { id: '1', title: 'Bhagavad-gītā As It Is English (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 15.00, imageId: 'bgEngBig' },
-  { id: '2', title: 'Bhagavad-gītā As It Is English (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 25.00, imageId: 'bgEngBig' },
-  { id: '3', title: 'Bhagavad-gītā As It Is Odia (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 30.00, imageId: 'bgEngBig' },
-  { id: '4', title: 'Bhagavad-gītā As It Is Hindi (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 10.00, imageId: 'bgEngBig' },
-  { id: '5', title: 'Bhagavad-gītā As It Is Hindi (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 8.00, imageId: 'bgEngBig' },
-  { id: '6', title: 'Krishna (The Supreme Personality of Godhead)-English', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 7.00, imageId: 'krsnaEngBig' },
-  { id: '7', title: 'Krishna (The Supreme Personality of Godhead)-Hindi', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 20.00, imageId: 'krsnaEngBig' },
-  { id: '8', title: 'Krishna (The Supreme Personality of Godhead)-Odia', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 9.00, imageId: 'krsnaEngBig' },
-  { id: '9', title: 'Bhagavad-gītā As It Is Bengali', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 6.00, imageId: 'bgEngBig' }
+  { id: '1', title: 'Bhagavad-gītā As It Is English (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 240.00, imageId: 'bgEngBig' },
+  { id: '2', title: 'Bhagavad-gītā As It Is English (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 190.00, imageId: 'bgEngSmall' },
+  { id: '3', title: 'Bhagavad-gītā As It Is Odia (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 240.00, imageId: 'bgOdiaBig' },
+  { id: '4', title: 'Bhagavad-gītā As It Is Hindi (Big)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 200.00, imageId: 'bgHindiBig' },
+  { id: '5', title: 'Bhagavad-gītā As It Is Hindi (Small)', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 180.00, imageId: 'bgHindiSmall' },
+  { id: '6', title: 'Krishna (The Supreme Personality of Godhead)-English', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 250.00, imageId: 'krsnaEngBig' },
+  { id: '7', title: 'Krishna (The Supreme Personality of Godhead)-Hindi', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 230.00, imageId: 'krsnaHindiBig' },
+  { id: '8', title: 'Krishna (The Supreme Personality of Godhead)-Odia', author: 'A.C. Bhaktivedanta Swami Prabhupāda', price: 250.00, imageId: 'krsnaOdiaBig' }
 ];
 
 

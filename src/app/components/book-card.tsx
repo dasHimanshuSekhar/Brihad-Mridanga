@@ -50,7 +50,7 @@ export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCard
         <p className="text-sm text-muted-foreground mt-1">{book.author}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0 flex justify-between items-center">
-        <p className="font-semibold text-lg">${book.price.toFixed(2)}</p>
+        <p className="font-semibold text-lg">₹{book.price.toFixed(2)}</p>
         <div className="flex items-center gap-2">
             <Button variant="outline" size="icon" className="h-8 w-8" disabled={quantity === 0} onClick={() => updateQuantity(book.id, quantity - 1)}>
               <Minus className="h-4 w-4" />
