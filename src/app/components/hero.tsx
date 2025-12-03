@@ -22,10 +22,10 @@ export function Hero() {
        )}
       <div className="relative z-20 max-w-4xl">
         <h1 className="text-4xl font-extrabold tracking-tight font-headline md:text-6xl lg:text-7xl">
-          "Book Distribution"
+          "Brihad Mridanga"
         </h1>
         <h1 className="text-4xl font-extrabold tracking-tight font-headline md:text-6xl lg:text-7xl">
-          The Brihad Mridanga
+          The Book Distribution
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-foreground/80 md:text-xl">
           This [book distribution] is our most important work. All the leaders should tax their brains for increasing the sales of our books. I have always said that if we simply rely on book distribution all our needs will be met. (Letter to: Rupanuga 11 January, 1976)

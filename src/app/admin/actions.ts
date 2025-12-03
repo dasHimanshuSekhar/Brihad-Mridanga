@@ -4,8 +4,7 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-import { initializeFirebase } from '@/firebase';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { adminDb } from '@/firebase/admin';
 import { encrypt } from '@/lib/session';
 
 
@@ -40,12 +39,11 @@ export async function login(prevState: { error: string | undefined }, formData: 
 
 // --- Shiprocket Action ---
 export async function forwardToShiprocket(orderId: string) {
-  const { firestore } = initializeFirebase();
-  const orderRef = doc(firestore, 'orders', orderId);
+  const orderRef = adminDb.collection('orders').doc(orderId);
 
   try {
-    const orderSnap = await getDoc(orderRef);
-    if (!orderSnap.exists()) {
+    const orderSnap = await orderRef.get();
+    if (!orderSnap.exists) {
         return { success: false, message: 'Order not found.' };
     }
     const order = orderSnap.data();
@@ -57,7 +55,7 @@ export async function forwardToShiprocket(orderId: string) {
     // In a real app, you would make an API call to Shiprocket here.
     console.log('Forwarding order to Shiprocket:', {id: orderId, ...order});
     
-    await updateDoc(orderRef, { status: 'Shipped' });
+    await orderRef.update({ status: 'Shipped' });
     
     revalidatePath('/admin');
 

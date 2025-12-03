@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { placeholderImageMap } from '@/lib/data';
 import type { Book } from '@/lib/data';
 import { Minus, Plus } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+// badge removed: no overlay counter on book image
 
 type BookCardProps = {
   book: Book;
@@ -29,9 +29,6 @@ export function BookCard({ book, addToCart, updateQuantity, quantity }: BookCard
   return (
     <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0 relative">
-        {quantity > 0 && (
-            <Badge className="absolute top-2 right-2 z-10 bg-accent text-accent-foreground">{quantity}</Badge>
-        )}
         {image && (
           <div className="aspect-[2/3] relative w-full">
             <Image

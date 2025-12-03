@@ -22,7 +22,7 @@ const firebaseConfig = {
 function initializeFirebase() {
   const apps = getApps();
   const app = apps.length ? apps[0] : initializeApp(firebaseConfig);
-  const firestore = getFirestore(app);
+  const firestore = getFirestore(app, 'b-mridanga');
   const auth = getAuth(app);
   return { app, firestore, auth };
 }

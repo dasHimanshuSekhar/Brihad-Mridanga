@@ -81,17 +81,17 @@ export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
         <Accordion type="single" collapsible className="w-full">
           {sortedOrders.map(order => (
             <AccordionItem value={order.id} key={order.id}>
-              <AccordionTrigger>
-                <div className="flex justify-between items-center w-full pr-4">
+              <AccordionTrigger className="p-0">
+                <div className="flex justify-between items-center w-full pr-4 cursor-pointer px-4 py-3 rounded-lg transition-transform transition-shadow transition-colors duration-200 ease-out transform hover:-translate-y-1 hover:shadow-lg hover:bg-accent/5 hover:border hover:border-accent/20 no-underline">
                     <div className="text-left">
-                        <p className="font-semibold">{order.name}</p>
-                        <p className="text-sm text-muted-foreground">{order.mobile} - {order.email}</p>
+                        <p className="font-semibold no-underline">{order.name}</p>
+                        <p className="text-sm text-muted-foreground no-underline">{order.mobile} - {order.email}</p>
                     </div>
                     <div className="text-right flex items-center gap-4">
                         <Badge variant={getStatusBadgeVariant(order.status)}>{order.status}</Badge>
                         <div className='flex flex-col items-end'>
-                            <p className="font-bold text-lg text-accent">${order.totalAmount.toFixed(2)}</p>
-                            <p className="text-sm text-muted-foreground">{order.timestamp.toLocaleDateString()}</p>
+                          <p className="font-bold text-lg text-accent">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(order.totalAmount)}</p>
+                            <p className="text-sm text-muted-foreground">{new Intl.DateTimeFormat('en-IN').format(order.timestamp)}</p>
                         </div>
                     </div>
                 </div>
@@ -129,8 +129,8 @@ export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
                                     <TableRow key={item.bookId}>
                                         <TableCell>{book.title}</TableCell>
                                         <TableCell className="text-center">{item.quantity}</TableCell>
-                                        <TableCell className="text-right">${book.price.toFixed(2)}</TableCell>
-                                        <TableCell className="text-right">${(item.quantity * book.price).toFixed(2)}</TableCell>
+                                        <TableCell className="text-right">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(book.price)}</TableCell>
+                                        <TableCell className="text-right">{new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(item.quantity * book.price)}</TableCell>
                                     </TableRow>
                                 )
                             })}

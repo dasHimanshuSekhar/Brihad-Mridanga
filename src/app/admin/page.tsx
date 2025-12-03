@@ -6,26 +6,30 @@ import { logout } from "@/lib/session";
 import { getUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { initializeFirebase } from '@/firebase';
-import { collection, getDocs, query, orderBy, Timestamp } from 'firebase/firestore';
+import { adminDb } from '@/firebase/admin';
 import type { Order } from '@/lib/data';
 
 
 async function getOrders(): Promise<Order[]> {
-  const { firestore } = initializeFirebase();
-  const ordersRef = collection(firestore, 'orders');
-  const q = query(ordersRef, orderBy('timestamp', 'desc'));
-  const querySnapshot = await getDocs(q);
-  
-  return querySnapshot.docs.map(doc => {
-    const data = doc.data();
-    const timestamp = data.timestamp as Timestamp;
-    return {
-      id: doc.id,
-      ...data,
-      timestamp: timestamp.toDate(),
-    } as Order;
-  });
+  try {
+    const snapshot = await adminDb
+      .collection('orders')
+      .orderBy('timestamp', 'desc')
+      .get();
+    
+    return snapshot.docs.map(doc => {
+      const data = doc.data();
+      const timestamp = data.timestamp;
+      return {
+        id: doc.id,
+        ...data,
+        timestamp: timestamp?.toDate ? timestamp.toDate() : new Date(),
+      } as Order;
+    });
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return [];
+  }
 }
 
 

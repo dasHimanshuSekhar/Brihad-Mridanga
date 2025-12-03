@@ -27,7 +27,7 @@ export default function Home() {
         
         <section id="order" className="py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-headline text-center mb-4">Order Your Books</h2>
+            <h2 className="text-4xl md:text-5xl font-headline text-center mb-4">Order Your Spiritual Books</h2>
             <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">Select your books from our curated collection and place your order. Don't forget to add a referral code if you have one!</p>
             <OrderClientWrapper />
           </div>
