@@ -5,6 +5,8 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { adminDb } from '@/firebase/admin';
+import { istNow } from '@/lib/time';
+import { Timestamp } from 'firebase-admin/firestore';
 import { encrypt } from '@/lib/session';
 
 
@@ -55,7 +57,11 @@ export async function forwardToShiprocket(orderId: string) {
     // In a real app, you would make an API call to Shiprocket here.
     console.log('Forwarding order to Shiprocket:', {id: orderId, ...order});
     
-    await orderRef.update({ status: 'Shipped' });
+    await orderRef.update({
+      status: 'Shipped',
+      updatedAt: Timestamp.now(),
+      updatedAtIST: istNow().ist,
+    });
     
     revalidatePath('/admin');
 

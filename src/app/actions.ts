@@ -8,6 +8,7 @@ import { revalidatePath } from "next/cache";
 // ✅ admin SDK (server-only)
 import { adminDb } from "@/firebase/admin";
 import { Timestamp } from "firebase-admin/firestore";
+import { istNow } from '@/lib/time';
 
 // --- Firestore helpers (admin SDK) ---
 
@@ -189,6 +190,7 @@ export async function placeOrder(data: unknown) {
     items,
     totalAmount: parseFloat(totalAmount.toFixed(2)),
     timestamp: Timestamp.now(),
+    createdAtIST: istNow().ist,
     status: "New" as const,
   };
 
