@@ -20,10 +20,17 @@ async function getOrders(): Promise<Order[]> {
     return snapshot.docs.map(doc => {
       const data = doc.data();
       const timestamp = data.timestamp;
+      const updatedAt = data.updatedAt;
+
+      // Convert Firestore Timestamp objects to plain numbers (milliseconds since epoch)
+      const tsMillis = timestamp?.toMillis ? timestamp.toMillis() : timestamp?.toDate ? timestamp.toDate().getTime() : Date.now();
+      const updatedAtMillis = updatedAt?.toMillis ? updatedAt.toMillis() : updatedAt?.toDate ? updatedAt.toDate().getTime() : undefined;
+
       return {
         id: doc.id,
         ...data,
-        timestamp: timestamp?.toDate ? timestamp.toDate() : new Date(),
+        timestamp: tsMillis,
+        updatedAt: updatedAtMillis,
       } as Order;
     });
   } catch (error) {

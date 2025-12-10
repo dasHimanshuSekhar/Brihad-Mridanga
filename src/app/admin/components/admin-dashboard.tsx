@@ -27,6 +27,9 @@ function toDate(timestamp: any): Date {
   if (timestamp instanceof Date) {
     return timestamp;
   }
+  if (typeof timestamp === 'number') {
+    return new Date(timestamp);
+  }
   if (timestamp && typeof timestamp.toDate === 'function') {
     return timestamp.toDate();
   }
@@ -38,11 +41,14 @@ export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   
-  // Convert Firestore Timestamps to JS Dates for consistent sorting
-  const sortedOrders = [...initialOrders].map(order => ({
-    ...order,
-    timestamp: toDate(order.timestamp),
-  })).sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+  // Ensure we only work with defined orders, convert timestamps to JS Dates for sorting
+  const safeOrders = (initialOrders ?? []).filter((o): o is Order => !!o);
+  const sortedOrders = safeOrders
+    .map(order => ({
+      ...order,
+      timestamp: toDate(order.timestamp),
+    }))
+    .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 
   const handleForward = (orderId: string) => {
     startTransition(async () => {
@@ -122,7 +128,7 @@ export function AdminDashboard({ initialOrders }: AdminDashboardProps) {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {order.items.map(item => {
+                            {(order.items || []).map(item => {
                                 const book = booksMap.get(item.bookId);
                                 if (!book) return null;
                                 return (
